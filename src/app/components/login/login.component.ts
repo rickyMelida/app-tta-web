@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     if (this.dataForm.user === this.usuarios[0].user && this.dataForm.password === this.usuarios[0].password) {
       const user = this.dataForm.user;
       // alert('Excelente');
-      this.ruta.navigate(['/main']);
+      this.ruta.navigate(['/inicio']);
     } else {
       Swal.fire(
         'Ups!',
