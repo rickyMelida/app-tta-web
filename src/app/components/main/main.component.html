@@ -1,0 +1,80 @@
+<div class="user">
+  <div>
+    <div>
+      <a href="#">volver</a>
+    </div>
+    <div>Usuario: sale</div>
+
+  </div>
+</div>
+
+<div>
+  <div>
+
+    <div class="estatus">
+      <div>
+        <div class="ande-on" *ngIf="status_ande;else ande_off">
+          <img src="assets/images/electricidad-on.png" width="80">
+        </div>
+
+        <ng-template #ande_off>
+          <div class="ande-off">
+            <img src="assets/images/electricidad-off.png" width="80">
+          </div>
+        </ng-template>
+
+        <div class="ande">Ande</div>
+      </div>
+
+      <div>
+        <div class="generador-on" *ngIf="!status_ande && status_generador;else generador_off">
+          <img src="assets/images/generador-on.png" width="70">
+        </div>
+
+        <ng-template #generador_off>
+          <div class="generador-off">
+            <img src="assets/images/generador-off.png" width="70">
+          </div>
+        </ng-template>
+        <div class="generador">Generador</div>
+      </div>
+    </div>
+
+
+    <div class="display">
+      <app-display></app-display>
+    </div>
+
+    <div class="buttons">
+      <div (click)="start()">
+        <div>
+          <app-button [option]="'start'"></app-button>
+          <div class="button-title" name="btn-start">Start</div>
+        </div>
+      </div>
+
+
+      <div class="ion-text-end" (click)="reset()">
+        <div>
+          <app-button [option]="'reset'"></app-button>
+          <div class="button-title" name="btn-reset">Reset</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="select ion-align-items-center">
+      <div>
+        <div>
+          <label for="cars">Tiempo de Arranque:</label>
+
+          <select name="cars" id="cars" [(ngModel)]="seleccionado">
+            <option value="2000">2 Seg</option>
+            <option value="3000">3 Seg</option>
+            <option value="5000">5 Seg</option>
+            <option value="8000">8 Seg</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
